@@ -1,0 +1,16 @@
+{
+    "name": "ivastly/securex-outlook-intgrtn",
+    "type": "project",
+    "description": "Exports vacations from securex (securexhrservices.eu) to MS Outlook calendar",
+    "keywords": [
+        "outlook",
+        "securex",
+        "securexhrservices",
+        "Graph API"
+    ],
+    "license": "WTFPL",
+    "require": {
+        "sagar/outlook-php": "^0.1.6",
+        "symfony/dotenv": "^4.3"
+    }
+}
