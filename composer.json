@@ -10,7 +10,7 @@
     ],
     "license": "WTFPL",
     "require": {
-        "sagar/outlook-php": "^0.1.6",
+        "php-ews/php-ews":  "~1.0",
         "symfony/dotenv": "^4.3"
     }
 }
