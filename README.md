@@ -1,7 +1,40 @@
-## How To Start
-* create `.env` file in the root
+# Rationale
+Surprised to see your key colleague ran out for vacation again?
+Yes, *there was an email about it 2 months ago*..
+Usually we forget about it same minute, and realize the fact when it is too late.
+You don't want another vacation to ruin your sprint again, do you?
+
+Then welcome a solution to **sync all vacations from any HR system to any Calendar**, so you always know who is going to be AFK!
+
+# How To Start
+* install dependencies
 ```bash
-copy .env.example .env
-nano .env
+composer install
 ```
-* finally, put the script to be run every day. It will export all vacations to your Outlook Calendar. 
+* create and fill `app/config/config.php` file
+```bash
+cp app/config/config.example.php app/config/config.php
+nano app/config/config.php
+```
+* finally, put the script to be run every minute. It will export all vacations to your Outlook Calendar. 
+```php
+php sync.php
+```
+
+# Security concerns
+MS Exchange API (known as Exchange Web Services) requires plain-text user password to be specified.
+To workaround this, the password is requested when the script starts. So, it is never stored on disk or github as plain text.
+Thus, the solution is enterprise ready and 100% IT-security compliant.  
+
+# Known Limitations
+Only [Securex HR Online](https://www.securex.lu/en/our-it-tool-hronline/9) -> MS Exchange Calendar is supported.
+
+# TODO
+* delete vacation events from Calendar if they disappear from Securex
+* support custom observable periods (current hardcoded to 1 month)
+* support more Calendars - Google Calendar, Zoho Calendar, etc.
+* support more ATS - BambooHR, Recruitee, Manatal, Oracle Taleo, etc.
+* tests
+
+# LICENSE
+See LICENSE file
