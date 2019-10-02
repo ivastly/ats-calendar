@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Src\Calendar\Business\Domain;
+namespace Src\Integration\Business\Domain;
 
 use DateTime;
 use Exception;

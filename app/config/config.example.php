@@ -4,7 +4,7 @@ use jamesiarmes\PhpEws\Client;
 
 return [
 	'email'               => 'developer@company.com',
-	'plain_text_password' => 'secret',
+	'plain_text_password' => 'secret', # if null, the password will be asked for when the script is run
 	'team'                => [
 		'developer@company.com' => 'Developer',
 		'master@company.com'    => 'Scrum Master',

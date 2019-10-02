@@ -29,7 +29,8 @@ To workaround this, the password is requested when the script starts. Thus, it i
 It makes the solution is enterprise ready and 100% IT-security compliant.  
 
 # Known Limitations
-Only [Securex HR Online](https://www.securex.lu/en/our-it-tool-hronline/9) -> MS Exchange Calendar is supported.
+ * only [Securex HR Online](https://www.securex.lu/en/our-it-tool-hronline/9) -> MS Exchange Calendar is supported
+ * please be patient, local Outlook client needs some time to synchronize calendar events (< 1 min)
 
 # TODO
 * delete vacation events from Calendar if they disappear from Securex

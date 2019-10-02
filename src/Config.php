@@ -23,6 +23,10 @@ class Config
 	{
 		$this->email             = $config['email'];
 		$this->password          = $config['plain_text_password'];
+		if (!$this->password)
+		{
+			$this->password = 'stdin'; // TODO read from STDIN
+		}
 		$this->team              = $config['team'];
 		$this->msExchangeHost    = $config['ms_exchange_host'];
 		$this->msExchangeVersion = $config['ms_exchange_version'];

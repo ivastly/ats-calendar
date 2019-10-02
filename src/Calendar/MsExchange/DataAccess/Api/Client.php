@@ -20,12 +20,12 @@ use jamesiarmes\PhpEws\Type\CalendarItemType;
 use jamesiarmes\PhpEws\Type\CalendarViewType;
 use jamesiarmes\PhpEws\Type\DistinguishedFolderIdType;
 use jamesiarmes\PhpEws\Type\ItemResponseShapeType;
-use Src\Calendar\Business\Domain\VacationEvent;
-use Src\Calendar\DataAccess\Api\AbstractCalendarClient;
+use Src\Calendar\DataAccess\Api\CalendarClient;
 use Src\Calendar\MsExchange\Business\Domain\Team;
 use Src\Config;
+use Src\Integration\Business\Domain\VacationEvent;
 
-class Client extends AbstractCalendarClient
+class Client implements CalendarClient
 {
 	/** @var PhpEwsClient */
 	private $client;
