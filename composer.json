@@ -1,21 +1,21 @@
 {
   "name": "ivastly/ats-calendar-integration",
-    "type": "project",
+  "type": "project",
   "description": "Exports vacations from any ATS to any Calendar system, e.g. Securex => MS Outlook Calendar",
-    "keywords": [
-        "outlook",
-        "securex",
-        "securexhrservices",
-      "ews"
-    ],
-    "license": "WTFPL",
-    "require": {
-      "php": "^7.3",
-      "php-ews/php-ews": "~1.0"
-    },
+  "keywords": [
+    "outlook",
+    "securex",
+    "securexhrservices",
+    "ews"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.3",
+    "php-ews/php-ews": "~1.0"
+  },
   "autoload": {
     "psr-4": {
       "Src\\": "src"
     }
-    }
+  }
 }

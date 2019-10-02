@@ -22,9 +22,11 @@ php sync.php
 ```
 
 # Security concerns
+
+### Anything -> MS Exchange integration
 MS Exchange API (known as Exchange Web Services) requires plain-text user password to be specified.
-To workaround this, the password is requested when the script starts. So, it is never stored on disk or github as plain text.
-Thus, the solution is enterprise ready and 100% IT-security compliant.  
+To workaround this, the password is requested when the script starts. Thus, it is never stored on disk or github as plain text.
+It makes the solution is enterprise ready and 100% IT-security compliant.  
 
 # Known Limitations
 Only [Securex HR Online](https://www.securex.lu/en/our-it-tool-hronline/9) -> MS Exchange Calendar is supported.
