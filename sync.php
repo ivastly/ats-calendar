@@ -9,7 +9,7 @@ require_once 'vendor/autoload.php';
 $config         = new Config(require_once __DIR__ . '/app/config/config.php');
 $exchangeClient = new Client($config);
 
-if (true)
+if (false)
 {
 	$vacation = VacationEvent::createFromData('Vasily Pyatykh', new DateTime('now'), new DateTime('+1 hour'));
 	$exchangeClient->postVacationEvent($vacation);

@@ -40,8 +40,8 @@ class VacationEvent
 		}
 
 		$matches = [];
-		// Vacation - John Doe (Apr 10 - Oct 02)
-		preg_match('/Vacation - ([^(]+) \(([A-z]{3} [\d]{2}) - ([A-z]{3} [\d]{2})\)/', $title, $matches);
+		// 🌴 Vacation - John Doe - (02 Oct - 02 Oct)
+		preg_match('/Vacation - ([^(]+) - \(([\d]{2} [A-z]{3}) - ([\d]{2} [A-z]{3})\)/', $title, $matches);
 
 		return self::createFromData(
 			$matches[1],
