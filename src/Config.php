@@ -45,9 +45,14 @@ class Config
 		return $this->email;
 	}
 
-	public function getExchangepassword(): string
+	public function getExchangePassword(): string
 	{
 		return $this->exchangePassword;
+	}
+
+	public function getSecurexPassword(): string
+	{
+		return $this->securexPassword;
 	}
 
 	public function getTeam(): array

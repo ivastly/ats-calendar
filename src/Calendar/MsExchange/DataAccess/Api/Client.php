@@ -39,7 +39,7 @@ class Client implements CalendarClient
 			new PhpEwsClient(
 				$config->getMsExchangeHost(),
 				$config->getEmail(),
-				$config->getExchangepassword(),
+				$config->getExchangePassword(),
 				$config->getMsExchangeVersion()
 			);
 
