@@ -8,7 +8,10 @@ class Config
 	private $email;
 
 	/** @var string */
-	private $password;
+	private $exchangePassword;
+
+	/** @var string */
+	private $securexPassword;
 
 	/** @var array */
 	private $team;
@@ -21,11 +24,16 @@ class Config
 
 	public function __construct(array $config)
 	{
-		$this->email             = $config['email'];
-		$this->password          = $config['plain_text_password'];
-		if (!$this->password)
+		$this->email            = $config['email'];
+		$this->exchangePassword = $config['exchange_password'];
+		if (!$this->exchangePassword)
 		{
-			$this->password = 'stdin'; // TODO read from STDIN
+			$this->exchangePassword = 'stdin'; // TODO read from STDIN
+		}
+		$this->securexPassword = $config['securex_password'];
+		if (!$this->securexPassword)
+		{
+			$this->securexPassword = 'stdin'; // TODO read from STDIN
 		}
 		$this->team              = $config['team'];
 		$this->msExchangeHost    = $config['ms_exchange_host'];
@@ -37,9 +45,9 @@ class Config
 		return $this->email;
 	}
 
-	public function getPassword(): string
+	public function getExchangepassword(): string
 	{
-		return $this->password;
+		return $this->exchangePassword;
 	}
 
 	public function getTeam(): array

@@ -3,12 +3,16 @@
 namespace Src\Ats\Securex\DataAccess\Api;
 
 use Src\Ats\DataAccess\Api\AtsClient;
-use Src\Integration\Business\Domain\VacationEvent;
+use Src\Config;
 
 class Client implements AtsClient
 {
-	public function searchForVacationEvents(): VacationEvent
+	public function __construct(Config $config)
 	{
-		// TODO: Implement searchForVacationEvents() method.
+	}
+
+	public function searchForVacationEvents(): array
+	{
+		return [];
 	}
 }

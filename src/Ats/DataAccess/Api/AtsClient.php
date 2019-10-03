@@ -6,5 +6,8 @@ use Src\Integration\Business\Domain\VacationEvent;
 
 interface AtsClient
 {
-	public function searchForVacationEvents(): VacationEvent;
+	/**
+	 * @return VacationEvent[]
+	 */
+	public function searchForVacationEvents(): array;
 }

@@ -7,6 +7,11 @@ You don't want another vacation to ruin your sprint again, do you?
 Then welcome a solution to **sync all vacations from any HR system to any Calendar**, so you always know who is going to be AFK!
 
 # How To Start
+* install node and puppeteer
+```bash
+npm install @nesk/puphpeteer
+```
+
 * install dependencies
 ```bash
 composer install
