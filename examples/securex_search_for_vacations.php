@@ -41,12 +41,25 @@ $page->waitForNavigation(
 		'waitUntil' => 'networkidle0',
 	]
 );
+$page->click('#topNavigationBtn'); // menu hamburger
+$page->waitFor('#textSubMenu-WA_PT');
+$page->click('#textSubMenu-WA_PT'); // Time Management
+$page->waitForNavigation(
+	[
+		'waitUntil' => 'networkidle0',
+	]
+);
+$page->click("button[title='Team Calendar']"); // Team Calendar
+$page->waitForSelector("button[title='Select All']");
+$page->waitFor(10000);
+
 $page->screenshot(
 	[
 		'path'     => 'example.png',
 		'fullPage' => true,
 	]
 );
+
 $browser->close();
 
 echo 'done';
