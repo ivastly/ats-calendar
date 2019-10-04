@@ -7,7 +7,7 @@ use Src\Config;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$config = new Config(require_once __DIR__ . '/../app/config/config.php');
+$config        = new Config(require_once __DIR__ . '/../app/config/config.php');
 $securexClient = new Client($config);
 
 foreach ($securexClient->searchForVacationEvents() as $event)
@@ -19,7 +19,10 @@ $puppeteer = new Puppeteer();
 $browser   = $puppeteer->launch();
 $page      = $browser->newPage();
 $page->goto(
-	'https://www.securexhrservices.eu/sap/public/bc/ur/eWS/customer/SCX/newlogInPageSCX.html?sap-client=100'
+	'https://www.securexhrservices.eu/sap/public/bc/ur/eWS/customer/SCX/newlogInPageSCX.html?sap-client=100',
+	[
+		'waitUntil' => 'networkidle0',
+	]
 );
 
 $login    = $config->getEmail();
@@ -32,10 +35,18 @@ $('div#password-input input').val('$password');
 JS
 	)
 );
-$page->waitFor(1000);
-$page->keyboard->press('Enter');
-$page->waitFor(3000);
-$page->screenshot(['path' => 'example.png']);
+$page->click('#loginButton');
+$page->waitForNavigation(
+	[
+		'waitUntil' => 'networkidle0',
+	]
+);
+$page->screenshot(
+	[
+		'path'     => 'example.png',
+		'fullPage' => true,
+	]
+);
 $browser->close();
 
 echo 'done';
