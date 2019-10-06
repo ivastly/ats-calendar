@@ -52,6 +52,7 @@ $page->waitForNavigation(
 $page->click("button[title='Team Calendar']"); // Team Calendar
 $page->waitForSelector("button[title='Select All']");
 $page->waitFor(2000);
+
 // click 'Select All'
 $page->evaluate(
 	JsFunction::createWithBody(
@@ -60,9 +61,10 @@ jQuery("button[title='Select All']").click();
 JS
 	)
 );
-//$page->waitFor(1000);
-//$page->click('#applicationTeamCalendar_filterLabel');
-$page->waitFor(1000);
+
+// jQuery('#applicationTeamCalendar_postButton').click(); // next week
+
+$page->waitFor(2000);
 $page->screenshot(
 	[
 		'path'     => 'example.png',
