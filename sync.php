@@ -12,4 +12,8 @@ $exchangeClient = new ExchangeClient($config);
 $atsClient      = new SecurexClient($config);
 $exportService  = new AtsToCalendarExportService($atsClient, $exchangeClient);
 
-$exportService->doAll();
+while (true)
+{
+	$exportService->doAll();
+	sleep(60 * 60);
+}
