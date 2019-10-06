@@ -62,9 +62,15 @@ JS
 	)
 );
 
+$page->waitForSelector('img.applicationTeamCalendar_style_picture');
+$page->waitFor(1000);
+$jsCode          = file_get_contents(__DIR__ . '/../js/collect_vacations.js');
+$weekToVacations = $page->evaluate(JsFunction::createWithBody($jsCode));
+
+var_dump($weekToVacations);
+
 // jQuery('#applicationTeamCalendar_postButton').click(); // next week
 
-$page->waitFor(2000);
 $page->screenshot(
 	[
 		'path'     => 'example.png',
@@ -74,4 +80,4 @@ $page->screenshot(
 
 $browser->close();
 
-echo 'done';
+echo "done\n";
