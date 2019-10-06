@@ -12,7 +12,8 @@
   "require": {
     "php": "^7.1",
     "php-ews/php-ews": "~1.0",
-    "nesk/puphpeteer": "^1.6"
+    "nesk/puphpeteer": "^1.6",
+    "ext-readline": "*"
   },
   "autoload": {
     "psr-4": {

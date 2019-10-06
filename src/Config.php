@@ -31,12 +31,12 @@ class Config
 		$this->exchangePassword = $config['exchange_password'];
 		if (!$this->exchangePassword)
 		{
-			$this->exchangePassword = 'stdin'; // TODO read from STDIN
+			$this->exchangePassword = readline('Please provide MS Exchange password:');
 		}
 		$this->securexPassword = $config['securex_password'];
 		if (!$this->securexPassword)
 		{
-			$this->securexPassword = 'stdin'; // TODO read from STDIN
+			$this->securexPassword = readline('Please provide Securex password:');
 		}
 		$this->team                    = $config['team'];
 		$this->securexNamesToTeamNames = $config['securex_names_to_team_names'];

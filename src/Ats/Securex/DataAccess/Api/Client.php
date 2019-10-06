@@ -83,7 +83,7 @@ JS
 		for ($week = 0; $week < 4; ++$week)
 		{
 			$page->waitForSelector('img.applicationTeamCalendar_style_picture');
-			$page->waitFor(1500);
+			$page->waitFor(2000);
 
 			$weekToVacations  = $page->evaluate(JsFunction::createWithBody($jsCode));
 			$weeksToVacations = array_merge($weeksToVacations, $weekToVacations);

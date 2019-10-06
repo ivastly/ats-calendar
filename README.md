@@ -43,6 +43,7 @@ It makes the solution is enterprise ready and 100% IT-security compliant.
 * if a vacation occupies more than 1 week, it is represented as multiple Calendar events - fix it
 * support more Calendars - Google Calendar, Zoho Calendar, etc.
 * support more ATS - BambooHR, Recruitee, Manatal, Oracle Taleo, etc.
+* dockerize
 * tests
 
 # LICENSE
