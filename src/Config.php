@@ -16,6 +16,9 @@ class Config
 	/** @var array */
 	private $team;
 
+	/** @var array */
+	private $securexNamesToTeamNames;
+
 	/** @var string */
 	private $msExchangeHost;
 
@@ -35,9 +38,10 @@ class Config
 		{
 			$this->securexPassword = 'stdin'; // TODO read from STDIN
 		}
-		$this->team              = $config['team'];
-		$this->msExchangeHost    = $config['ms_exchange_host'];
-		$this->msExchangeVersion = $config['ms_exchange_version'];
+		$this->team                    = $config['team'];
+		$this->securexNamesToTeamNames = $config['securex_names_to_team_names'];
+		$this->msExchangeHost          = $config['ms_exchange_host'];
+		$this->msExchangeVersion       = $config['ms_exchange_version'];
 	}
 
 	public function getEmail(): string
@@ -58,6 +62,11 @@ class Config
 	public function getTeam(): array
 	{
 		return $this->team;
+	}
+
+	public function getNameBySecurexName(string $securexName): string
+	{
+		return $this->securexNamesToTeamNames[$securexName] ?? 'Not configured name';
 	}
 
 	public function getMsExchangeHost(): string

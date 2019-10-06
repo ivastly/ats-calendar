@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
 
-use Nesk\Puphpeteer\Puppeteer;
-use Nesk\Rialto\Data\JsFunction;
 use Src\Ats\Securex\DataAccess\Api\Client;
 use Src\Config;
 
@@ -10,74 +8,15 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $config        = new Config(require_once __DIR__ . '/../app/config/config.php');
 $securexClient = new Client($config);
 
-foreach ($securexClient->searchForVacationEvents() as $event)
+$events = $securexClient->searchForVacationEvents();
+if ($events)
 {
-	echo "Vacations found: $event\n";
+	echo "Vacations found:\n";
+	foreach ($events as $event)
+	{
+		echo "$event\n";
+	}
+} else
+{
+	echo "Nothing found\n";
 }
-
-$puppeteer = new Puppeteer();
-$browser   = $puppeteer->launch();
-$page      = $browser->newPage();
-$page->goto(
-	'https://www.securexhrservices.eu/sap/public/bc/ur/eWS/customer/SCX/newlogInPageSCX.html?sap-client=100',
-	[
-		'waitUntil' => 'networkidle0',
-	]
-);
-
-$login    = $config->getEmail();
-$password = $config->getSecurexPassword();
-$page->evaluate(
-	JsFunction::createWithBody(
-		<<<JS
-$('div#user-input input').val('$login');
-$('div#password-input input').val('$password');
-JS
-	)
-);
-$page->click('#loginButton');
-$page->waitForNavigation(
-	[
-		'waitUntil' => 'networkidle0',
-	]
-);
-$page->click('#topNavigationBtn'); // menu hamburger
-$page->waitFor('#textSubMenu-WA_PT');
-$page->click('#textSubMenu-WA_PT'); // Time Management
-$page->waitForNavigation(
-	[
-		'waitUntil' => 'networkidle0',
-	]
-);
-$page->click("button[title='Team Calendar']"); // Team Calendar
-$page->waitForSelector("button[title='Select All']");
-$page->waitFor(2000);
-
-// click 'Select All'
-$page->evaluate(
-	JsFunction::createWithBody(
-		<<<JS
-jQuery("button[title='Select All']").click();
-JS
-	)
-);
-
-$page->waitForSelector('img.applicationTeamCalendar_style_picture');
-$page->waitFor(1000);
-$jsCode          = file_get_contents(__DIR__ . '/../js/collect_vacations.js');
-$weekToVacations = $page->evaluate(JsFunction::createWithBody($jsCode));
-
-var_dump($weekToVacations);
-
-// jQuery('#applicationTeamCalendar_postButton').click(); // next week
-
-$page->screenshot(
-	[
-		'path'     => 'example.png',
-		'fullPage' => true,
-	]
-);
-
-$browser->close();
-
-echo "done\n";

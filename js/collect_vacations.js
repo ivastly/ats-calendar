@@ -20,7 +20,8 @@ function getWeekOverviews() {
 	jQuery('td.applicationTeamCalendar_calRow').each(function (index) {
 		let $td = jQuery(this);
 		let today = 'regular';
-		if ($td.find("div[title='Approved']").length > 0) {
+		let $absDiv = $td.find("div[title='Approved']");
+		if ($absDiv.length > 0 && $absDiv.text() === 'ABS') {
 			today = 'vacation';
 		}
 		weekBuffer.push(today);
@@ -51,5 +52,6 @@ let schedule = array_combine(names, weeks);
 let currentWeek = getCurrentWeek();
 weekToVacations[currentWeek] = schedule;
 
+/* 'return outside function definition' is okay here, because it will be run in puphpeteer context */
 return weekToVacations;
 //})();
