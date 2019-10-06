@@ -8,6 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $config        = new Config(require_once __DIR__ . '/../app/config/config.php');
 $securexClient = new Client($config);
 
+// run for about 10-20 seconds
 $events = $securexClient->searchForVacationEvents();
 if ($events)
 {

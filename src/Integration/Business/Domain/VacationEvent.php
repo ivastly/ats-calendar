@@ -26,8 +26,8 @@ class VacationEvent
 	{
 		$event            = new self();
 		$event->teammate  = trim($teammate);
-		$event->startDate = clone $startDate;
-		$event->endDate   = clone $endDate;
+		$event->startDate = (clone $startDate)->setTime(10, 10);
+		$event->endDate   = (clone $endDate)->setTime(10, 10);
 
 		return $event;
 	}

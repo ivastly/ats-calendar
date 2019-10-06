@@ -7,6 +7,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $config         = new Config(require_once __DIR__ . '/../app/config/config.php');
 $exchangeClient = new Client($config);
+
 $vacationEvents = $exchangeClient->searchForVacationEvents();
 
 if ($vacationEvents)

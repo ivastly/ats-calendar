@@ -4,10 +4,12 @@ use jamesiarmes\PhpEws\Client;
 
 return [
 	'email'                       => 'developer@company.com',
+
+	// if null, the password will be asked for when the script is run
 	'exchange_password'           => null,
-	# if null, the password will be asked for when the script is run
+
+	// if null, the password will be asked for when the script is run
 	'securex_password'            => null,
-	# if null, the password will be asked for when the script is run
 	'securex_names_to_team_names' => [
 		'DEVELOPER FULL NAME'    => 'Developer',
 		'SCRUM MASTER FULL NAME' => 'Scrum Master',
@@ -19,6 +21,7 @@ return [
 		'teamlead@company.com'  => 'Team Lead',
 	],
 	'ms_exchange_host'            => 'webmail.company.com',
-	'ms_exchange_version'         => Client::VERSION_2016,
+
 	// must be a constant from vendor/php-ews/php-ews/src/Client.php
+	'ms_exchange_version'         => Client::VERSION_2016,
 ];

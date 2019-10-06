@@ -21,13 +21,26 @@ class AtsToCalendarExportService
 
 	public function doAll(): void
 	{
-		$atsEvents              = $this->atsClient->searchForVacationEvents();
+		$atsEvents = $this->atsClient->searchForVacationEvents();
+
+		echo "ats events:\n";
+		foreach ($atsEvents as $event)
+		{
+			echo "$event\n";
+		}
+
 		$existingCalendarEvents = $this->calendarClient->searchForVacationEvents();
+
+		echo "\nexisting calendar events:\n";
+		foreach ($existingCalendarEvents as $event)
+		{
+			echo "$event\n";
+		}
 
 		foreach (array_diff($atsEvents, $existingCalendarEvents) as $newEvent)
 		{
-			echo "New vacation event found: $newEvent\n";
-			// $this->calendarClient->postVacationEvent($newEvent);
+			echo "Posting new vacation event: $newEvent\n";
+			$this->calendarClient->postVacationEvent($newEvent);
 		}
 	}
 }

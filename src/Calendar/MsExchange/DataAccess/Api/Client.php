@@ -48,7 +48,7 @@ class Client implements CalendarClient
 
 	public function searchForVacationEvents(): array
 	{
-		$startDate = new DateTime('now');
+		$startDate = new DateTime('-1 week');
 		$endDate   = new DateTime('+1 month');
 		$timezone  = 'E. Europe Standard Time';
 		$this->client->setTimezone($timezone);
