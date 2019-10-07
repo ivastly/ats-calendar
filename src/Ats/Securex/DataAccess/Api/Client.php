@@ -80,7 +80,7 @@ JS
 
 		$jsCode           = file_get_contents(__DIR__ . '/../../../../../js/collect_vacations.js');
 		$weeksToVacations = [];
-		for ($week = 0; $week < 4; ++$week)
+		for ($week = 0; $week < 8; ++$week)
 		{
 			$page->waitForSelector('img.applicationTeamCalendar_style_picture');
 			$page->waitFor(2000);
