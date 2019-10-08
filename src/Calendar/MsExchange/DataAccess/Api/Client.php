@@ -98,10 +98,11 @@ class Client implements CalendarClient
 		$request->SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType::SEND_ONLY_TO_ALL;
 		$request->Items                  = new NonEmptyArrayOfAllItemsType();
 
-		$event                              = new CalendarItemType();
-		$event->RequiredAttendees           = new NonEmptyArrayOfAttendeesType();
-		$event->Start                       = $vacationEvent->getStartDate()->format('c');
-		$event->End                         = $vacationEvent->getEndDate()->format('c');
+		$event                    = new CalendarItemType();
+		$event->RequiredAttendees = new NonEmptyArrayOfAttendeesType();
+		$event->Start             = $vacationEvent->getStartDate()->setTime(8, 30)->format('c');
+		$event->End               = $vacationEvent->getEndDate()->setTime(23, 30)->format('c');
+		// $event->IsAllDayEvent               = true; // it creates two duplicated events for unknown reason
 		$event->Subject                     = $vacationEvent->getVacationEventTitle();
 		$event->Body                        = new BodyType();
 		$event->Body->_                     = $this->getEventBody($vacationEvent);
