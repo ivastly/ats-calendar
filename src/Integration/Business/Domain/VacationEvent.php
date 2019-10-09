@@ -83,6 +83,11 @@ class VacationEvent
 		return "🌴 Vacation - {$this->teammate} - ($from - $to)";
 	}
 
+	public function startsToday(): bool
+	{
+		return $this->startDate->diff(new DateTime('now'))->days === 0;
+	}
+
 	public function __toString()
 	{
 		return $this->getVacationEventTitle();

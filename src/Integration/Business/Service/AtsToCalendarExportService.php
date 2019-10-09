@@ -4,6 +4,7 @@ namespace Src\Integration\Business\Service;
 
 use Src\Ats\DataAccess\Api\AtsClient;
 use Src\Calendar\DataAccess\Api\CalendarClient;
+use Src\Integration\Business\Domain\VacationEvent;
 
 class AtsToCalendarExportService
 {
@@ -39,6 +40,13 @@ class AtsToCalendarExportService
 
 		foreach (array_diff($atsEvents, $existingCalendarEvents) as $newEvent)
 		{
+			/** @var $newEvent VacationEvent */
+			if ($newEvent->startsToday())
+			{
+				echo "Most probably, sick leave detected, skipping: $newEvent\n";
+				continue;
+			}
+
 			echo "Posting new vacation event: $newEvent\n";
 			$this->calendarClient->postVacationEvent($newEvent);
 		}
