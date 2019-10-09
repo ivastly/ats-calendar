@@ -101,7 +101,7 @@ class Client implements CalendarClient
 		$event                    = new CalendarItemType();
 		$event->RequiredAttendees = new NonEmptyArrayOfAttendeesType();
 		$event->Start             = $vacationEvent->getStartDate()->setTime(8, 30)->format('c');
-		$event->End               = $vacationEvent->getEndDate()->setTime(23, 30)->format('c');
+		$event->End               = $vacationEvent->getEndDate()->setTime(21, 30)->format('c');
 		// $event->IsAllDayEvent               = true; // it creates two duplicated events for unknown reason
 		$event->Subject                     = $vacationEvent->getVacationEventTitle();
 		$event->Body                        = new BodyType();
