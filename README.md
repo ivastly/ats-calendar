@@ -9,6 +9,13 @@ Then welcome a solution to **sync all vacations from any HR system to any Calend
 # How To Start
 ## Docker way
 
+* create and fill `app/config/config.php` file
+```bash
+cp app/config/config.example.php app/config/config.php
+nano app/config/config.php
+```
+
+* put dockerized script to cron 
 ```bash
 docker run --rm --interactive --tty --volume $PWD:/app composer install
 docker-compose run puphpeteer php sync_once.php # put this on cron for every 5 minutes
