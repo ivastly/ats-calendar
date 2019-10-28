@@ -10,10 +10,15 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^7.1",
+    "php": "7.2",
     "php-ews/php-ews": "~1.0",
     "nesk/puphpeteer": "^1.6",
     "ext-readline": "*"
+  },
+  "config": {
+    "platform": {
+      "php": "7.2"
+    }
   },
   "autoload": {
     "psr-4": {

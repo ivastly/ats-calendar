@@ -78,4 +78,9 @@ class Config
 	{
 		return $this->msExchangeVersion;
 	}
+
+	public function isInside(): bool
+	{
+		return file_exists('/.dockerenv');
+	}
 }

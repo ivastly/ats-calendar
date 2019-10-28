@@ -1,0 +1,8 @@
+version: '3.0'
+
+services:
+  puphpeteer:
+    build:
+      context: ./docker/
+    volumes:
+      - ./:/app/

@@ -7,6 +7,14 @@ You don't want another vacation to ruin your sprint again, do you?
 Then welcome a solution to **sync all vacations from any HR system to any Calendar**, so you always know who is going to be AFK!
 
 # How To Start
+## Docker way
+
+```bash
+docker run --rm --interactive --tty --volume $PWD:/app composer install
+docker-compose run puphpeteer php sync_once.php # put this on cron for every 5 minutes
+```
+
+## Classic way
 * install node and puppeteer
 ```bash
 npm install @nesk/puphpeteer
@@ -44,7 +52,7 @@ It makes the solution to be enterprise ready and 100% IT-security compliant.
 * if a vacation occupies more than 1 week, it is represented as multiple Calendar events - fix it
 * support more Calendars - Google Calendar, Zoho Calendar, etc.
 * support more ATS - BambooHR, Recruitee, Manatal, Oracle Taleo, etc.
-* dockerize
+* ~~dockerize~~
 * tests
 
 # LICENSE

@@ -32,7 +32,20 @@ class Client implements AtsClient
 	private function getRawDataFromPuphpeteer(): array
 	{
 		$puppeteer = new Puppeteer();
-		$browser   = $puppeteer->launch();
+
+		$puppeteerOptions = [];
+		if ($this->config->isInside())
+		{
+			$puppeteerOptions = [
+				'args' =>
+					[
+						'--no-sandbox',
+						'--disable-setuid-sandbox',
+						'--disable-dev-shm-usage',
+					],
+			];
+		}
+		$browser   = $puppeteer->launch($puppeteerOptions);
 		$page      = $browser->newPage();
 		$page->goto(
 			'https://www.securexhrservices.eu/sap/public/bc/ur/eWS/customer/SCX/newlogInPageSCX.html?sap-client=100',
