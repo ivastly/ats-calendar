@@ -17,7 +17,8 @@
   },
   "config": {
     "platform": {
-      "php": "7.2"
+      "php": "7.2",
+      "ext-sockets": "7.2.23"
     }
   },
   "autoload": {
